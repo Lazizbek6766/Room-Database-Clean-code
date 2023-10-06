@@ -10,4 +10,5 @@ interface ItemDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertService(item: Item)
+
 }
