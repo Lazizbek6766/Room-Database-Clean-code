@@ -10,4 +10,7 @@ class ItemRepository @Inject constructor(
     suspend fun saveItem(item: Item) = itemDao.insertService(item)
 
     fun getItem() = itemDao.getItems()
+
+    suspend fun removeAllItem() = itemDao.removeAllItem()
+
 }

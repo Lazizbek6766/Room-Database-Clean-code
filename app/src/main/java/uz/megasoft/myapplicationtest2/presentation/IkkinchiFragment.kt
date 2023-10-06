@@ -30,13 +30,16 @@ class IkkinchiFragment : BaseFragment(R.layout.fragment_ikkinchi) {
 
     private fun setupUI() = with(binding) {
         recyclerItem.adapter = adapter
+
+        tvRemove.setOnClickListener {
+            viewModel.removeAllItems()
+            Toast.makeText(requireContext(), "S", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun loadData() {
         viewModel.items.observe(viewLifecycleOwner) { items ->
             adapter.submitList(items.toMutableList())
-            Toast.makeText(requireContext(), "${items.size}", Toast.LENGTH_SHORT).show()
         }
-
     }
 }
