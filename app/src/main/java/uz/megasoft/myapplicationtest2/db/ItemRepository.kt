@@ -1,6 +1,6 @@
 package uz.megasoft.myapplicationtest2.db
 
-import uz.megasoft.myapplicationtest2.Item
+import uz.megasoft.myapplicationtest2.domain.model.Item
 import javax.inject.Inject
 
 class ItemRepository @Inject constructor(
@@ -9,4 +9,5 @@ class ItemRepository @Inject constructor(
 
     suspend fun saveItem(item: Item) = itemDao.insertService(item)
 
+    fun getItem() = itemDao.getItems()
 }

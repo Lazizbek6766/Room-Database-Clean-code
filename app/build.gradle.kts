@@ -55,14 +55,17 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.47")
     kapt("com.google.dagger:hilt-android-compiler:2.47")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.1")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.1")
+    implementation("androidx.navigation:navigation-fragment-ktx:2.7.4")
+    implementation("androidx.navigation:navigation-ui-ktx:2.7.4")
 
     //room
     implementation ("androidx.room:room-runtime:2.6.0-beta01")
     implementation ("androidx.room:room-ktx:2.6.0-beta01")
     kapt ("androidx.room:room-compiler:2.6.0-beta01")
     androidTestImplementation ("androidx.room:room-testing:2.6.0-beta01")
+
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1")
 }
 kapt {
     correctErrorTypes = true
