@@ -5,26 +5,45 @@
     android:layout_marginVertical="8dp"
     android:layout_marginHorizontal="16dp">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_name"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="lwiufb"
-            android:textColor="@color/black"/>
-        <TextView
-            android:id="@+id/tv_description"
-            android:layout_marginTop="4dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/tv_remove"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="lwiufb"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="leiuhcl iwulcibfr wiuhfpi"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/tv_remove"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="leiuhcl iwulcibfr wiuhfpi"
-            android:textColor="@color/black"/>
+            android:layout_margin="8dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_delete" />
+    </RelativeLayout>
 
-    </LinearLayout>
 
 </com.google.android.material.card.MaterialCardView>

@@ -7,7 +7,7 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import uz.megasoft.myapplicationtest2.db.AppDatabase
+import uz.megasoft.myapplicationtest2.data.db.AppDatabase
 import javax.inject.Singleton
 
 @Module
@@ -15,7 +15,7 @@ import javax.inject.Singleton
 object DatabaseModule {
     @Provides
     @Singleton
-    fun appDatabase(@ApplicationContext context: Context):AppDatabase  =
+    fun appDatabase(@ApplicationContext context: Context): AppDatabase =
         Room.databaseBuilder(context, AppDatabase::class.java, "basket").fallbackToDestructiveMigration().build()
 
     @Provides

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
 import uz.megasoft.myapplicationtest2.R
 import uz.megasoft.myapplicationtest2.databinding.FragmentBirinchiBinding
@@ -21,7 +22,7 @@ class IkkinchiFragment : BaseFragment(R.layout.fragment_ikkinchi) {
 
     private val binding by viewBinding { FragmentIkkinchiBinding.bind(it) }
     private val viewModel by viewModels<ItemListVievModel>()
-    private val adapter by lazy { ItemAdapter() }
+    private val adapter by lazy { ItemAdapter(this::remove) }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupUI()
@@ -31,9 +32,12 @@ class IkkinchiFragment : BaseFragment(R.layout.fragment_ikkinchi) {
     private fun setupUI() = with(binding) {
         recyclerItem.adapter = adapter
 
-        tvRemove.setOnClickListener {
+        tvAllRemove.setOnClickListener {
             viewModel.removeAllItems()
-            Toast.makeText(requireContext(), "S", Toast.LENGTH_SHORT).show()
+        }
+
+        toolbar.setOnClickListener {
+            findNavController().navigateUp()
         }
     }
 
@@ -42,4 +46,9 @@ class IkkinchiFragment : BaseFragment(R.layout.fragment_ikkinchi) {
             adapter.submitList(items.toMutableList())
         }
     }
+
+    private fun remove(id: Int) {
+        viewModel.removeItem(id)
+    }
+
 }

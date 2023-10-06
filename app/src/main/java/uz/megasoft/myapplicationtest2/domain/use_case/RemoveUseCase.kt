@@ -1,11 +1,9 @@
 package uz.megasoft.myapplicationtest2.domain.use_case
 
-import kotlinx.coroutines.flow.Flow
-import uz.megasoft.myapplicationtest2.db.ItemRepository
-import uz.megasoft.myapplicationtest2.domain.model.Item
+import uz.megasoft.myapplicationtest2.data.repository.ItemRepository
 
-class RemoveUseCase(private val repository: ItemRepository) {
-    suspend operator fun invoke() {
-        return repository.removeAllItem()
+class RemoveUseCase (private val repository: ItemRepository) {
+    suspend operator fun invoke(id: Int) {
+        return repository.removeItem(id)
     }
 }

@@ -4,8 +4,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import uz.megasoft.myapplicationtest2.db.ItemDao
-import uz.megasoft.myapplicationtest2.db.ItemRepository
+import uz.megasoft.myapplicationtest2.data.db.ItemDao
+import uz.megasoft.myapplicationtest2.data.repository.ItemRepository
 import javax.inject.Singleton
 
 @Module

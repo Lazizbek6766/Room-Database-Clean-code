@@ -7,7 +7,6 @@ import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import uz.megasoft.myapplicationtest2.domain.model.Item
-import uz.megasoft.myapplicationtest2.domain.use_case.GetItemsUseCase
 import uz.megasoft.myapplicationtest2.domain.use_case.ItemUseCase
 import javax.inject.Inject
 
@@ -34,10 +33,17 @@ class ItemListVievModel @Inject constructor(
         }
     }
 
-    // rumdagi barcha malumotlarni o'chirish
+    // roomdagi barcha malumotlarni o'chirish
     fun removeAllItems(){
         viewModelScope.launch {
-            itemUseCase.removeUseCase.invoke()
+            itemUseCase.allRemoveUseCase.invoke()
+        }
+    }
+
+    // roomdagi bitta malumotlarni o'chirish
+    fun removeItem(id: Int){
+        viewModelScope.launch {
+            itemUseCase.removeUseCase.invoke(id)
         }
     }
 }
