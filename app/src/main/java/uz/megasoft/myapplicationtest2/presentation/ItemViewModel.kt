@@ -18,6 +18,7 @@ class ItemViewModel @Inject constructor(
     private val itemUseCase: ItemUseCase
 ) : ViewModel() {
 
+    //item saqlash
     fun saveItem(name: String, description: String) {
         val item = Item(name = name, description = description)
         viewModelScope.launch {

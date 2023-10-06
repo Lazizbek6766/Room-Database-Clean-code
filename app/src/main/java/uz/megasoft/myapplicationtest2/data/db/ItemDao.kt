@@ -1,4 +1,4 @@
-package uz.megasoft.myapplicationtest2.db
+package uz.megasoft.myapplicationtest2.data.db
 
 import androidx.room.Dao
 import androidx.room.Insert
@@ -18,4 +18,7 @@ interface ItemDao {
 
     @Query("DELETE FROM item")
     suspend fun removeAllItem()
+
+    @Query("DELETE FROM item WHERE id =:id")
+    suspend fun removeItem(id: Int)
 }

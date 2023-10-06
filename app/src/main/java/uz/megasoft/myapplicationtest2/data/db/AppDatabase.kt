@@ -1,4 +1,4 @@
-package uz.megasoft.myapplicationtest2.db
+package uz.megasoft.myapplicationtest2.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase

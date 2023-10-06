@@ -9,7 +9,9 @@ import androidx.recyclerview.widget.RecyclerView
 import uz.megasoft.myapplicationtest2.databinding.ItemRecyclerBinding
 import uz.megasoft.myapplicationtest2.domain.model.Item
 
-class ItemAdapter : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
+class ItemAdapter(
+    val deleteItemClick: (id: Int) -> Unit
+) : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
     var listener: ((Item) -> Unit)? = null
     private val dif = AsyncListDiffer(this, ITEM_DIFF)
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemAdapter.ViewHolder {
@@ -39,6 +41,10 @@ class ItemAdapter : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
 
                 root.setOnClickListener {
                     listener?.invoke(item)
+                }
+
+                tvRemove.setOnClickListener {
+                    deleteItemClick(item.id)
                 }
             }
         }
