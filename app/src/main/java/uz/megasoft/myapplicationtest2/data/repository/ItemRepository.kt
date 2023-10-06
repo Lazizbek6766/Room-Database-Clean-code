@@ -16,4 +16,6 @@ class ItemRepository @Inject constructor(
 
     suspend fun removeItem(id:Int) = itemDao.removeItem(id)
 
+    suspend fun updateItem(item: Item) = itemDao.updateItem(item)
+
 }
