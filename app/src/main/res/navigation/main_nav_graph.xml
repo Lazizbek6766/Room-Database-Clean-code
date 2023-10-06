@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph.xml"
+    app:startDestination="@id/birinchiFragment">
+
+    <fragment
+        android:id="@+id/birinchiFragment"
+        android:name="uz.megasoft.myapplicationtest2.presentation.BirinchiFragment"
+        android:label="fragment_birinchi"
+        tools:layout="@layout/fragment_birinchi" >
+        <action
+            android:id="@+id/action_birinchiFragment_to_ikkinchiFragment"
+            app:destination="@id/ikkinchiFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ikkinchiFragment"
+        android:name="uz.megasoft.myapplicationtest2.presentation.IkkinchiFragment"
+        android:label="fragment_ikkinchi"
+        tools:layout="@layout/fragment_ikkinchi" />
+</navigation>
