@@ -19,6 +19,7 @@ inline fun <T : ViewBinding> AppCompatActivity.viewBinding(crossinline factory: 
         factory(layoutInflater)
     }
 
+
 /** Fragment binding delegate, may be used since onViewCreated up to onDestroyView (inclusive) */
 fun <T : ViewBinding> Fragment.viewBinding(factory: (View) -> T): ReadOnlyProperty<Fragment, T> =
     object : ReadOnlyProperty<Fragment, T>, DefaultLifecycleObserver {
