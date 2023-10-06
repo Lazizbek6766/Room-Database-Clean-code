@@ -1,4 +1,4 @@
-package uz.megasoft.myapplicationtest2
+package uz.megasoft.myapplicationtest2.domain.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
