@@ -5,18 +5,18 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import uz.megasoft.myapplicationtest2.domain.model.Item
 import uz.megasoft.myapplicationtest2.domain.use_case.GetItemsUseCase
+import uz.megasoft.myapplicationtest2.domain.use_case.ItemUseCase
 import javax.inject.Inject
 
 @HiltViewModel
 class ItemListVievModel @Inject constructor(
-    private val getItemsUseCase: GetItemsUseCase
+    private val itemUseCase: ItemUseCase
 ) : ViewModel() {
 
+    // roomdan malumotlarni olish
     private val _items = MutableLiveData<List<Item>>()
     val items: LiveData<List<Item>> get() = _items
 
@@ -28,9 +28,16 @@ class ItemListVievModel @Inject constructor(
 
     private fun getItems() {
         viewModelScope.launch {
-            getItemsUseCase.invoke().collect { items ->
+            itemUseCase.getItemsUseCase.invoke().collect { items ->
                 _items.value = items
             }
+        }
+    }
+
+    // rumdagi barcha malumotlarni o'chirish
+    fun removeAllItems(){
+        viewModelScope.launch {
+            itemUseCase.removeUseCase.invoke()
         }
     }
 }

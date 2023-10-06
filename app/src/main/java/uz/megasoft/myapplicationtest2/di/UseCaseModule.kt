@@ -6,6 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import uz.megasoft.myapplicationtest2.db.ItemRepository
 import uz.megasoft.myapplicationtest2.domain.use_case.GetItemsUseCase
+import uz.megasoft.myapplicationtest2.domain.use_case.ItemUseCase
+import uz.megasoft.myapplicationtest2.domain.use_case.RemoveUseCase
 import uz.megasoft.myapplicationtest2.domain.use_case.SaveItemUseCase
 import javax.inject.Singleton
 
@@ -15,14 +17,11 @@ object UseCaseModule {
 
     @Provides
     @Singleton
-    fun provideSaveItemUseCase(repository: ItemRepository): SaveItemUseCase {
-        return SaveItemUseCase(repository)
+    fun provideItemUseCase(repository: ItemRepository): ItemUseCase {
+        return  ItemUseCase(
+            getItemsUseCase = GetItemsUseCase(repository),
+            saveItemUseCase = SaveItemUseCase(repository),
+            removeUseCase = RemoveUseCase(repository)
+        )
     }
-    @Provides
-    @Singleton
-    fun provideGetItemUseCase(repository: ItemRepository): GetItemsUseCase {
-        return GetItemsUseCase(repository)
-
-    }
-
 }

@@ -27,9 +27,12 @@ class BirinchiFragment : BaseFragment(R.layout.fragment_birinchi) {
     private fun setupUI() = with(binding) {
 
         btnSave.setOnClickListener {
-            val name = binding.name.text.toString()
-            val description = binding.description.text.toString()
-            viewModel.saveItem(name, description)
+            val nametx = name.text.toString()
+            val descriptiontx = description.text.toString()
+            viewModel.saveItem(nametx, descriptiontx)
+
+            name.text.clear()
+            description.text.clear()
         }
 
         btnNext.setOnClickListener {

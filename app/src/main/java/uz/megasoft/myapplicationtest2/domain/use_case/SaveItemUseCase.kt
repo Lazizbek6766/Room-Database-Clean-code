@@ -4,9 +4,9 @@ import uz.megasoft.myapplicationtest2.domain.model.Item
 import uz.megasoft.myapplicationtest2.db.ItemRepository
 
 class SaveItemUseCase(
-    private val itemRepository: ItemRepository
+    private val repository: ItemRepository
 ) {
     suspend operator fun invoke(item: Item) {
-        return itemRepository.saveItem(item = item)
+        return repository.saveItem(item = item)
     }
 }
